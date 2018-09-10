@@ -23,21 +23,16 @@ namespace Demo
 
         protected void btTaoTK_Click(object sender, EventArgs e)
         {
-            string sql = "INSERT INTO dbo.TaiKhoan(Username,  Pass,  Enable,  Note) VALUES (  N'{0}',  N'{1}',  N'{2}',  N'{3}')";
-            sql = string.Format(sql, tbUsername.Text, tbPass1.Text, true, string.Empty);
-            int kq = 0;
+            int kq = 0, Result = 0 ;
             try
             {
-                string sqlconnnectionstring = @"Data Source = PHUCDESKW\SQLEXPRESS2014; Initial Catalog = LichLamViecOnline_v1; Persist Security Info = True; User ID = KHCIGDB_User ;  Password = D@n9n4ab ";
-                SQLDataAccessHelper.ConnectionString = sqlconnnectionstring;
-                kq = SQLDataAccessHelper.ExecNoneQueryString(sql, null, null);
-
+                kq = new BUS.BUSTaiKhoan().InsertTaiKhoan(tbUsername.Text, tbPass1.Text, out Result);
             }
             catch (Exception  ex)
             {
                 throw ex;
             }
-            if (kq == 1) Response.Write("SUccess"); else Response.Write("Fail");
+            if (kq == 1) Response.Write( string.Format("SUccess; kq={0}; Result={1}", kq, Result)); else Response.Write(string.Format("Fail; kq={0}; Result={1}", kq, Result));
         }
     }
 }

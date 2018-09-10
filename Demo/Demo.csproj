@@ -99,6 +99,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Site1.Master" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -119,6 +123,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BUSTaiKhoan.cs" />
     <Compile Include="DAL\DAOTaiKhoan.cs" />
     <Compile Include="DangNhap.aspx.cs">
       <DependentUpon>DangNhap.aspx</DependentUpon>
@@ -134,10 +139,16 @@
     <Compile Include="demoWizard.aspx.designer.cs">
       <DependentUpon>demoWizard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Enum.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -145,6 +156,7 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="SQLDataAccessHelper - Copy.cs" />
     <Compile Include="SQLDataAccessHelper.cs" />
     <Compile Include="TaoTaiKhoan.aspx.cs">
       <DependentUpon>TaoTaiKhoan.aspx</DependentUpon>
@@ -166,7 +178,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\" />
     <Folder Include="App_LocalResources\" />
-    <Folder Include="BUS\" />
     <Folder Include="Models\" />
     <Folder Include="WebForm\" />
   </ItemGroup>
