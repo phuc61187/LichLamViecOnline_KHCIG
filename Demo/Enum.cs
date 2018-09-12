@@ -9,4 +9,5 @@ public enum spvn {
 ,@Note
 ,@Enable
 ,@Result
+,@returnValue
 }

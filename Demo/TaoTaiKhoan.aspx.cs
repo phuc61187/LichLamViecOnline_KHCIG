@@ -32,7 +32,14 @@ namespace Demo
             {
                 throw ex;
             }
-            if (kq == 1) Response.Write( string.Format("SUccess; kq={0}; Result={1}", kq, Result)); else Response.Write(string.Format("Fail; kq={0}; Result={1}", kq, Result));
+            if (kq == 1) {
+                // OK
+            }
+            else {
+                if (Result == -1) {
+                    //tai khoan da ton tai
+                }
+            }
         }
     }
 }
