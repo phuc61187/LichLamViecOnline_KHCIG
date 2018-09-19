@@ -1,4 +1,8 @@
-﻿public enum spn {
+﻿public enum ConstantString {
+    
+}
+
+public enum spn {
     sp_TaiKhoan_Insert,
 
 }

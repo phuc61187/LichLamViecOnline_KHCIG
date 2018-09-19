@@ -23,13 +23,11 @@ namespace Demo
 
         protected void btTaoTK_Click(object sender, EventArgs e)
         {
-            int kq = 0, Result = 0 ;
-            try
-            {
+            int kq = 0, Result = 0;
+            try {
                 kq = new BUS.BUSTaiKhoan().InsertTaiKhoan(tbUsername.Text, tbPass1.Text, out Result);
             }
-            catch (Exception  ex)
-            {
+            catch (Exception ex) {
                 throw ex;
             }
             if (kq == 1) {

@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="Demo.Site2" %>
+
+<%@ Register assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 115px;
+            height: 46px;
+            float: left;
+            text-align: center;
+        }
+        .auto-style2 {
+        }
+        .auto-style3 {
+            width: 232px;
+            height: 23px;
+        }
+        .auto-style4 {
+            height: 23px;
+        }
+        .auto-style5 {
+            width: 232px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            <table border="0" style="width:100%;">
+                <tr>
+                    <td class="auto-style5">
+                        <img alt="" class="auto-style1" src="App_GlobalResources/logo.png" /><br />
+                        <br />
+                        <br />
+                        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="Small" Text="NHÀ MÁY THUỐC LÁ KHÁNH HỘI"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="LỊCH LÀM VIỆC CƠ QUAN"></asp:Label>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3"></td>
+                    <td class="auto-style4"></td>
+                    <td class="auto-style4"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style2" colspan="3">&nbsp;</td>
+                </tr>
+            </table>
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
