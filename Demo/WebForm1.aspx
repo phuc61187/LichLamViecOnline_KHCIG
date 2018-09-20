@@ -94,9 +94,13 @@
             <asp:Label ID="Label4" runat="server" Text="Người chủ trì:"></asp:Label>
         </td>
         <td class="auto-style12" colspan="3">
-            <dx:ASPxGridLookup ID="ASPxGridNguoiChuTri" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DisplayFormatString="{1} ({4} {5})" KeyFieldName="ID" Width="500px">
-<GridViewProperties>
-<SettingsBehavior AllowFocusedRow="True" AllowSelectSingleRowOnly="True" AllowSelectByRowClick="True"></SettingsBehavior>
+            <dx:ASPxGridLookup ID="ASPxGridNguoiChuTri" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DisplayFormatString="{1} ({4} {5})" KeyFieldName="ID" Width="500px" AutoResizeWithContainer="True" SelectionMode="Multiple" TextFormatString="{1} {4} {5}">
+<GridViewProperties >
+<SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True"></SettingsBehavior>
+    <SettingsPager AlwaysShowPager="True" PageSize="1">
+        <PageSizeItemSettings Visible="True">
+        </PageSizeItemSettings>
+    </SettingsPager>
     <Settings ShowFilterBar="Visible" ShowFilterRow="True" />
 </GridViewProperties>
                 <Columns>
@@ -125,10 +129,10 @@
             <asp:Label ID="Label9" runat="server" Text="Thành phần dự:"></asp:Label>
         </td>
         <td class="auto-style12" colspan="3">
-            <dx:ASPxGridLookup ID="ASPxGridThanhPhanDu" runat="server" Width="500px" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
-<GridViewProperties DataSourceForceStandardPaging="True">
+            <dx:ASPxGridLookup ID="ASPxGridThanhPhanDu" runat="server" Width="500px" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" KeyFieldName="ID">
+<GridViewProperties >
 <SettingsBehavior AllowFocusedRow="True" AllowSelectSingleRowOnly="True"></SettingsBehavior>
-    <SettingsPager AlwaysShowPager="True" PageSize="2" Position="TopAndBottom">
+    <SettingsPager PageSize="2">
     </SettingsPager>
     <SettingsResizing ColumnResizeMode="NextColumn" />
 </GridViewProperties>
@@ -142,16 +146,6 @@
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="FirstName" VisibleIndex="2">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BPID" ReadOnly="True" Visible="False" VisibleIndex="5">
-                        <EditFormSettings Visible="False" />
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BPShortName" VisibleIndex="6">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="CVID" ReadOnly="True" Visible="False" VisibleIndex="7">
-                        <EditFormSettings Visible="False" />
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="CVName" VisibleIndex="8">
-                    </dx:GridViewDataTextColumn>
                     <dx:GridViewCommandColumn ShowSelectCheckbox="True" VisibleIndex="0">
                     </dx:GridViewCommandColumn>
                 </Columns>
@@ -159,7 +153,9 @@
                 </ClearButton>
             </dx:ASPxGridLookup>
         </td>
-        <td class="auto-style12">&nbsp;</td>
+        <td class="auto-style12">
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LichLamViecOnline_v1ConnectionString %>" SelectCommand="SELECT * FROM [DSDoiTuong]"></asp:SqlDataSource>
+        </td>
     </tr>
     <tr>
         <td class="auto-style6">
@@ -234,7 +230,7 @@
     <tr>
         <td class="auto-style6">&nbsp;</td>
         <td colspan="3">
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LichLamViecOnline_v1ConnectionString %>" SelectCommand="SELECT DSDoiTuong.ID, DSDoiTuong.LastName, DSDoiTuong.MiddleName, DSDoiTuong.FirstName, DMBoPhan.ID AS BPID, DMBoPhan.ShortName as BPShortName, DMChucVu.ID AS CVID, DMChucVu.Name as CVName FROM DSDoiTuong INNER JOIN DSDoiTuongBoPhan ON DSDoiTuong.ID = DSDoiTuongBoPhan.IDDoiTuong INNER JOIN DSDoiTuongChucVu ON DSDoiTuong.ID = DSDoiTuongChucVu.IDDoiTuong INNER JOIN DMBoPhan ON DSDoiTuongBoPhan.IDBoPhan = DMBoPhan.ID INNER JOIN DMChucVu ON DSDoiTuongChucVu.IDChucVu = DMChucVu.ID WHERE (DMBoPhan.Enable = 1) AND (DMChucVu.Enable = 1) AND (DSDoiTuong.Enable = 1)"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LichLamViecOnline_v1ConnectionString %>" SelectCommand="SELECT DSDoiTuong.ID, DSDoiTuong.LastName, DSDoiTuong.MiddleName, DSDoiTuong.FirstName, DMBoPhan.ID AS BPID, DMBoPhan.ShortName AS BPShortName, DMChucVu.ID AS CVID, DMChucVu.Name AS CVName, DMBoPhan.CodeGroupType, DMBoPhan.GroupTypeName FROM DSDoiTuong INNER JOIN DSDoiTuongBoPhan ON DSDoiTuong.ID = DSDoiTuongBoPhan.IDDoiTuong INNER JOIN DSDoiTuongChucVu ON DSDoiTuong.ID = DSDoiTuongChucVu.IDDoiTuong INNER JOIN DMBoPhan ON DSDoiTuongBoPhan.IDBoPhan = DMBoPhan.ID INNER JOIN DMChucVu ON DSDoiTuongChucVu.IDChucVu = DMChucVu.ID WHERE (DMBoPhan.Enable = 1) AND (DMChucVu.Enable = 1) AND (DSDoiTuong.Enable = 1)"></asp:SqlDataSource>
         </td>
         <td>&nbsp;</td>
     </tr>
